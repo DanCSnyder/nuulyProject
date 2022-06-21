@@ -1,29 +1,51 @@
 {
   "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    "types": ["node"],
+    "baseUrl": ".",
+    // "paths": {
+    //   "@components/*": ["app/javascript/components/*"],
+    //   "@propTypes": ["app/javascript/propTypes"],
+    //   "@propTypes/*": ["app/javascript/propTypes/*"],
+    //   "@root/*": ["app/javascript/*"],
+    //   "@shared/*": ["app/javascript/shared/*"],
+    //   "@store": ["app/javascript/store/*"],
+    //   "@store/*": ["app/javascript/store/*"],
+    //   "@testHelpers": ["app/javascript/test-helpers"],
+    //   "@testHelpers/*": ["app/javascript/test-helpers/*"],
+    //   "@types": ["app/javascript/types"],
+    //   "@types/*": ["app/javascript/types/*"]
+    // },
+    "typeRoots": ["./app/javascript/@types", "node_modules/@types"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": [
-    "node_modules"
-  ]
+    "**/*.test.js",
+    "node_modules",
+    "vendor",
+    "public",
+    "config",
+    "app/javascript/mediaConstants.js"
+  ],
+  "compileOnSave": true
 }
