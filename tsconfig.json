@@ -3,14 +3,16 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "noEmit": true,
-
     "strict": true,
     "strictPropertyInitialization": true,
     "strictBindCallApply": true,
@@ -18,10 +20,10 @@
     "strictNullChecks": true,
     "noImplicitAny": false,
     "noImplicitThis": true,
-
     "allowSyntheticDefaultImports": true,
-
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "baseUrl": ".",
     // "paths": {
     //   "@components/*": ["app/javascript/components/*"],
@@ -36,9 +38,23 @@
     //   "@types": ["app/javascript/types"],
     //   "@types/*": ["app/javascript/types/*"]
     // },
-    "typeRoots": ["./app/javascript/@types", "node_modules/@types"]
+    "typeRoots": [
+      "./app/javascript/@types",
+      "node_modules/@types"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js"
+  ],
   "exclude": [
     "**/*.test.js",
     "node_modules",
