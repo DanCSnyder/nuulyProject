@@ -8,7 +8,7 @@ Installation
 
 Clone the repository
 --------------------
-* Run: `git clone xxx`
+* Run: `git clone git@github.com:DanCSnyder/nuulyProject.git`
 
 Environment Variables and Secrets
 ----------------------------
