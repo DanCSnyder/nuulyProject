@@ -54,7 +54,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
-  ],
+, "__tests__/searchBar.test.jsx"  ],
   "exclude": [
     "**/*.test.js",
     "node_modules",

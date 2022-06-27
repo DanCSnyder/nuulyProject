@@ -37,7 +37,7 @@ const Actors = ({ data }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-2">
         {cast.map((film) => {
           return (
-            <div>
+            <div key={film.id}>
               <img
                 alt={film.title}
                 className="rounded-md"
