@@ -54,7 +54,6 @@ const Actors = ({ data }) => {
 export async function getServerSideProps({ params: { slug } }) {
   const getData = await Promise.all([getActorDetails(slug), getCredits(slug)]);
   let results = await Promise.all(getData.map((r) => r.json()));
-  // let results = [bradPittData, moreData];
   results = results
     .map((result) => {
       if (result?.cast) {
