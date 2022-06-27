@@ -32,13 +32,14 @@ const Actors = ({ data }) => {
       </div>
       <span className="p-4">{biography}</span>
       <p className="font-medium leading-tight text-3xl mt-0 mb-2">
-        Known work:
+        Top 20 Rated Work:
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-2">
         {cast.map((film) => {
           return (
             <div>
               <img
+                alt={film.title}
                 className="rounded-md"
                 src={`http://image.tmdb.org/t/p/w300${film.poster_path}`}
               />
@@ -51,16 +52,23 @@ const Actors = ({ data }) => {
 };
 
 export async function getServerSideProps({ params: { slug } }) {
-  // const getData = await Promise.all([getActorDetails(slug), getCredits(slug)]);
-  // let results = await Promise.all(getData.map((r) => r.json()));
-  let results = [bradPittData, moreData];
-  results = results.reduce(
-    (accum, data) => ({
-      ...data,
-      ...accum,
-    }),
-    {}
-  );
+  const getData = await Promise.all([getActorDetails(slug), getCredits(slug)]);
+  let results = await Promise.all(getData.map((r) => r.json()));
+  // let results = [bradPittData, moreData];
+  results = results
+    .map((result) => {
+      if (result?.cast) {
+        result.cast = result.cast.slice(0, 20);
+      }
+      return result;
+    })
+    .reduce(
+      (accum, data) => ({
+        ...data,
+        ...accum,
+      }),
+      {}
+    );
   return {
     props: {
       data: JSON.stringify(results),
