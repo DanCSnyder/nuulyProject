@@ -1,5 +1,4 @@
 import { AppProps } from "next/app";
-import test from "node:test";
 import { useState } from "react";
 import { ActorType, MovieType } from "types";
 import Link from "next/link";

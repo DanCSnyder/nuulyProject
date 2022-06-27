@@ -23,21 +23,21 @@ const getActorDetails = (id: string) => {
 const Actors = ({ data }) => {
   const { biography, cast, name, profile_path } = JSON.parse(data);
   return (
-    <>
+    <div className="">
+      <p className="font-bold underline">{name}</p>
+      <img src={`http://image.tmdb.org/t/p/w300${profile_path}`} />
+      <span>{biography}</span>
       <div>
-        <h1>{name}</h1>
-        <img src={`http://image.tmdb.org/t/p/w300${profile_path}`} />
-        <span>{biography}</span>
-        <div>
-          <h1>Known work:</h1>
-          {cast.map((film) => {
-            return (
+        <h1>Known work:</h1>
+        {cast.map((film) => {
+          return (
+            <div>
               <img src={`http://image.tmdb.org/t/p/w300${film.poster_path}`} />
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 };
 
