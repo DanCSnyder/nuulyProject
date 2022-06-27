@@ -21,7 +21,24 @@ const getActorDetails = (id: string) => {
 };
 
 const Actors = ({ data }) => {
-  return <div>{data}</div>;
+  const { biography, cast, name, profile_path } = JSON.parse(data);
+  return (
+    <>
+      <div>
+        <h1>{name}</h1>
+        <img src={`http://image.tmdb.org/t/p/w300${profile_path}`} />
+        <span>{biography}</span>
+        <div>
+          <h1>Known work:</h1>
+          {cast.map((film) => {
+            return (
+              <img src={`http://image.tmdb.org/t/p/w300${film.poster_path}`} />
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export async function getServerSideProps({ params: { slug } }) {
