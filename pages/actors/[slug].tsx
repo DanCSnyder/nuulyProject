@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import bradPittData from "bradPittData";
 import moreData from "moreData";
 
@@ -23,16 +22,26 @@ const getActorDetails = (id: string) => {
 const Actors = ({ data }) => {
   const { biography, cast, name, profile_path } = JSON.parse(data);
   return (
-    <div className="">
-      <p className="font-bold underline">{name}</p>
-      <img src={`http://image.tmdb.org/t/p/w300${profile_path}`} />
-      <span>{biography}</span>
-      <div>
-        <h1>Known work:</h1>
+    <div className="flex flex-col items-center">
+      <p className="font-medium leading-tight text-5xl mt-0 mb-2">{name}</p>
+      <div className="flex w-6/12 sm:w-4/12 px-4 justify-center">
+        <img
+          className="shadow-lg rounded max-w-full border-none"
+          src={`http://image.tmdb.org/t/p/w300${profile_path}`}
+        />
+      </div>
+      <span className="p-4">{biography}</span>
+      <p className="font-medium leading-tight text-3xl mt-0 mb-2">
+        Known work:
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-2">
         {cast.map((film) => {
           return (
             <div>
-              <img src={`http://image.tmdb.org/t/p/w300${film.poster_path}`} />
+              <img
+                className="rounded-md"
+                src={`http://image.tmdb.org/t/p/w300${film.poster_path}`}
+              />
             </div>
           );
         })}
