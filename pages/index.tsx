@@ -31,7 +31,7 @@ const HomePage = () => {
     <>
       <div className="flex flex-col items-center">
         <div className="my-4">Search for an actor:</div>
-        <div className="mb-3 xl:w-96">
+        <div>
           <SearchBar onSubmit={handleSubmit} />
         </div>
       </div>
